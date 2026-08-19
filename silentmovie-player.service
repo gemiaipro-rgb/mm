@@ -1,0 +1,15 @@
+[Unit]
+Description=SilentMovie Player Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# مسیر پوشه‌ی ربات را در صورت نیاز اصلاح کنید:
+WorkingDirectory=/root/bot
+ExecStart=/root/bot/venv/bin/python /root/bot/player_server.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
