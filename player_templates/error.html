@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#050507">
+    <title>خطا — {{ site_name }}</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: #050507;
+            color: #f0f0f5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .error-container {
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .error-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+            animation: shake 0.5s ease-in-out;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(8px); }
+            60% { transform: translateX(-4px); }
+            80% { transform: translateX(4px); }
+        }
+        .error-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ef4444;
+            margin-bottom: 12px;
+        }
+        .error-message {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        .error-code {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.25);
+            font-family: monospace;
+            direction: ltr;
+        }
+        .logo {
+            margin-top: 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.2);
+            letter-spacing: 2px;
+        }
+        .logo span {
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-icon">❌</div>
+        <div class="error-title">{{ error_title }}</div>
+        <div class="error-message">{{ error_message }}</div>
+        <div class="error-code">{{ error_code }}</div>
+        <div class="logo"><span>{{ site_name }}</span></div>
+    </div>
+    <script>
+        try { Telegram.WebApp.ready(); Telegram.WebApp.expand(); } catch(e) {}
+    </script>
+</body>
+</html>
